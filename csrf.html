@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF</title>
+</head>
+<body>
+    <h1>CSRF</h1><hr>
+    <h1>Functionality where CSRF attack can happens</h1>
+    <h2>1)Attacker Can Spam false support requests</h2>
+    <h2>2)Lack of CSRF Protection while connecting social media account in csrf vulnerable website</h2>
+    <h2>3)banned/unbanned user in video live stream</h2>
+    <h2>4)When there is the functionality in website where user 'forgot password' and request the password forgotten request, then website sends the link to the connected email, if the website allows user to automatically login after submitting password then there can be CSRF because attacker can forge to user for login the attacker account. </h2>
+    <h2>5)Does CSRF token expired after logout? or still can use after logout by replacing to the new csrf </h2>
+    <h2>6)CSRF in the website's help/feedback functions</h2>
+    <h2>7)Make Unread notification read</h2>
+    <h2>8)Attacker can add item in shopping cart</h2>
+    <h2>9)CSRF may not be in any delete functionality</h2>
+    <h2>10)No CSRF token in sign in/ sign up functionality</h2>
+    <h2>11)Email change functionality</h2>
+    <h2>12)follow functionality like if i can follow thousands people in the vuln website </h2>
+    <h2>13)invitation functionality</h2>
+    <h2>14)Can add Coupon Code in the website</h2><hr>
+   
+   
+   
+    <h1>Preventing Defence</h1>
+    <h2>1)Primary Defence(Use a CSRF token in relevant requests(relevant requests means impactfull scenerio) like email change, password change).</h2>
+    <h2>How should CSRF tokens be transmitted?</h2>
+    <h2>1)Hidden field of a HTML form that is submitted using a POST method</h2>
+    <h2>2)Custom request Header</h2>
+    <h2>3)Tokens submitted in the URL query string are less secure</h2>
+    <h2>4)CSRF Tokens generally should not be transmitted within cookies</h2>
+    <h2>5)Additional Defence(using SameSite Cookies attributes(strict, lax, none)) -->using is  good to defence but not good practise because it can be bypassed. So best practise is using both SameSite attributes(strict or Lax) in Cookies and generating CSRF Tokens.</h2>
+    <h2>6)Referer Header(The Referer HTTP request header contains an absolute or partial address of the page maling the request) but Referer headers can be spoofed, and the defense can be bypassed. Ex1:-if its not present, the application does not check for it. Ex2:-the referre header is only checked to see if it contains the domain and exact match is not made</h2><hr>
+
+    <h1>How Should CSRF tokens be validated?</h1>
+    <h2>1)Generated tokens should be stored server-side within the users session data </h2>
+    <h2>2)When performing a request, a validation should be performed that verifies that the submitted token matches the value that is stored in the users session</h2>
+    <h2>3)Validation should be performed regardless of HTTP method or content type of the request(validate for both GET and POST method)</h2>
+    <h2>4)If a token is not submitted ,the request should be rejected.</h2><hr>
+    
+    <h1>Some website use different types of mecahnism to protect CSRF.</h1>
+    <h2>-->Website have the mailing address changing functionality and it is POST method and it have CSRF token to protect against CSRF attack, but when i change POST method to GET method and remove the CSRF token it works, but the attack does not work here because  </h2>
+
+
+
+</body>
+</html>
