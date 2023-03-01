@@ -8,6 +8,29 @@
 </head>
 <body>
     <h1>CSRF</h1><hr>
+    <h1>Bypass technique for CSRF</h1>
+    <h2>1)Remove the entire token</h2>
+    <h2>2)Use any random but same-length token, or same-lenght+1/same-length-1</h2>
+    <h2>3)Use another users token</h2>
+    <h2>4)Change from POST to GET method and delete the token</h2>
+    <h2>5)If its a PUT or DELETE request, try POST /profile/update?_method=PUT or </h2>
+    <h2>POST /profile/update HTTP/1.1 </h2>
+    <h2>Host: vuln.com</h2>
+    <h2>...</h2>
+    <h2>_method=PUT</h2>
+    <h2>6)If the token its in a custom header, delete the header</h2>
+    <h2>7)Change the Content-Type to application/json, application/x-url-encoded or form-multipart, text/html, application/xml</h2>
+    <h2>8)If there is double submit token, try CRLF injection</h2>
+    <h2>9)If the website validate CSRF attack through Referer header(may be it check whether the request originated then if it checks as example.com domain it can be bypass by example.com.attacker.com) then </h2>
+    <h2>10)May be it can be bypassed by adding the pathname as vulnerable website(ex attacker.com/victim.com)</h2>
+     
+     `
+     
+
+
+
+
+
     <h1>Functionality where CSRF attack can happens</h1>
     <h2>1)Attacker Can Spam false support requests</h2>
     <h2>2)Lack of CSRF Protection while connecting social media account in csrf vulnerable website</h2>
@@ -22,7 +45,11 @@
     <h2>11)Email change functionality</h2>
     <h2>12)follow functionality like if i can follow thousands people in the vuln website </h2>
     <h2>13)invitation functionality</h2>
-    <h2>14)Can add Coupon Code in the website</h2><hr>
+    <h2>14)let the website have the functionality to send email about its monthly billing to the victim email but the functionality is vulnerable to CSRF then attacker can change the victim email to attcker email and read the victim billing information(information disclosure)</h2>
+    <h2>15)let there is Self-XSS and CSRF in the website in the username change functionality then it can be exploit because we can add username as xss payload and it triggers (because it is also vulnerable to CSRF) then we can steal sessions cookies and other. </h2>
+    <h2>16)if the website have the functionality to sign up with email or other options then user can sign in without password but in that website for setting the new password for other options it can call the password set in the endpoint for ex: /set_password. so attacker can set the password of victim who have log in through socail media or email.</h2>
+    <h2>17)if there is stored xss in website then attacker can stored CSRF POC to executes for all the users.(may be session cookies cannot be steal due to Httponly attributes).</h2>
+    <h2>18)Can add Coupon Code in the website</h2><hr>
    
    
    
@@ -43,7 +70,14 @@
     <h2>4)If a token is not submitted ,the request should be rejected.</h2><hr>
     
     <h1>Some website use different types of mecahnism to protect CSRF.</h1>
-    <h2>-->Website have the mailing address changing functionality and it is POST method and it have CSRF token to protect against CSRF attack, but when i change POST method to GET method and remove the CSRF token it works, but the attack does not work here because  </h2>
+    <h2>-->Website have the mailing address changing functionality and it is POST method and it have CSRF token to protect against CSRF attack, but when i change POST method to GET method and remove the CSRF token it works, but the attack does not work here because here the server checks the "X-Requested-With: XMLHttpRequest" header is present or not but it cannot be bypassed because of CORS policy.  </h2>
+
+
+
+
+
+
+    
 
 
 
