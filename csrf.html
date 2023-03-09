@@ -23,6 +23,16 @@
     <h2>8)If there is double submit token, try CRLF injection</h2>
     <h2>9)If the website validate CSRF attack through Referer header(may be it check whether the request originated then if it checks as example.com domain it can be bypass by example.com.attacker.com) then </h2>
     <h2>10)May be it can be bypassed by adding the pathname as vulnerable website(ex attacker.com/victim.com)</h2>
+    <h2>-->Regex Referral bypass</h2>
+    <h2>- https://attacker.com?victim.com <br>
+        - https://attacker.com;victim.com <br>
+        - https://attacker.com/victim.com/../victimPATH <br>
+        - https://victim.com.attacker.com <br>
+        - https://attackervictim.com <br>
+        - https://victim.com@attacker.com <br>
+        - https://attacker.com#victim.com <br>
+        - https://attacker.com\.victim.com <br>
+        - https://attacker.com/.victim.com</h2>
      
      `
      
